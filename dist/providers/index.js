@@ -10,7 +10,6 @@ var providers_facebook = require('./facebook.js');
 var providers_oauth2_base = require('./oauth2.base.js');
 var providers_oauth2 = require('./oauth2.js');
 var providers_reddit = require('./reddit.js');
-require('$app/env');
 require('../helpers.js');
 require('node-fetch');
 

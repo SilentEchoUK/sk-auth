@@ -3,7 +3,6 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var providers_oauth2 = require('./oauth2.js');
-require('$app/env');
 require('../helpers.js');
 require('./oauth2.base.js');
 require('./base.js');

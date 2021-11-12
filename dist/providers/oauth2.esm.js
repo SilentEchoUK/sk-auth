@@ -1,10 +1,9 @@
-import { browser } from '$app/env';
 import { ucFirst } from '../helpers.esm.js';
 import { OAuth2BaseProvider } from './oauth2.base.esm.js';
 import nodeFetch from 'node-fetch';
 import './base.esm.js';
 
-const safeFetch = browser ? fetch : nodeFetch;
+const safeFetch = window ? fetch : nodeFetch;
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",

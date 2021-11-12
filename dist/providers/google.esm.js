@@ -1,5 +1,4 @@
 import { OAuth2Provider } from './oauth2.esm.js';
-import '$app/env';
 import '../helpers.esm.js';
 import './oauth2.base.esm.js';
 import './base.esm.js';

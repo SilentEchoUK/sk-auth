@@ -3,14 +3,13 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var auth = require('./auth.js');
-var providers_index = require('./index-7b56f29e.js');
+var providers_index = require('./index-7a78920a.js');
 require('cookie');
 require('jsonwebtoken');
 require('./path.js');
 require('./providers/base.js');
 require('./providers/twitch.js');
 require('./providers/oauth2.js');
-require('$app/env');
 require('./helpers.js');
 require('./providers/oauth2.base.js');
 require('node-fetch');

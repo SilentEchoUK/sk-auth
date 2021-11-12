@@ -2,7 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var env = require('$app/env');
 var helpers = require('../helpers.js');
 var providers_oauth2_base = require('./oauth2.base.js');
 var nodeFetch = require('node-fetch');
@@ -12,7 +11,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var nodeFetch__default = /*#__PURE__*/_interopDefaultLegacy(nodeFetch);
 
-const safeFetch = env.browser ? fetch : nodeFetch__default['default'];
+const safeFetch = window ? fetch : nodeFetch__default['default'];
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",
