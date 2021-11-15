@@ -14,7 +14,6 @@ const baseConfig = {
   output: {
     dir: "dist",
     sourcemap: true,
-    format: "es",
   },
   plugins: [
     esbuild(),
