@@ -1,10 +1,11 @@
 {
   "name": "sk-auth",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Authentication library for use with SvelteKit featuring built-in OAuth providers and zero restriction customization!",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./client": "./dist/client/index.js",
