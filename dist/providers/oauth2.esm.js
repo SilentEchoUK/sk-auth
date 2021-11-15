@@ -44,7 +44,7 @@ class OAuth2Provider extends OAuth2BaseProvider {
       body = JSON.stringify(data);
     }
     const res = await axios.post(this.config.accessTokenUrl, {
-      body,
+      data: body,
       method: "POST",
       headers: {
         "Content-Type": this.config.contentType,

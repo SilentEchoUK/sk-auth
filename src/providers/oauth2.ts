@@ -73,7 +73,7 @@ export class OAuth2Provider<
     }
 
     const res = await axios.post(this.config.accessTokenUrl!, {
-      body,
+      data: body,
       method: "POST",
       headers: {
         "Content-Type": this.config.contentType,
