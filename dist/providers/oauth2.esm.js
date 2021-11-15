@@ -1,9 +1,9 @@
 import { ucFirst } from '../helpers.esm.js';
 import { OAuth2BaseProvider } from './oauth2.base.esm.js';
-import nodeFetch from 'node-fetch';
+import * as nodeFetch from 'node-fetch';
 import './base.esm.js';
 
-const safeFetch = window ? fetch : nodeFetch;
+const safeFetch = window ? fetch : nodeFetch.default;
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",

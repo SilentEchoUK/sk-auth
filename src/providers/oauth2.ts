@@ -2,9 +2,9 @@ import type { ServerRequest } from "@sveltejs/kit/types/endpoint";
 import type { Auth } from "../auth";
 import { ucFirst } from "../helpers";
 import { OAuth2BaseProvider, OAuth2BaseProviderConfig, OAuth2Tokens } from "./oauth2.base";
-import nodeFetch from "node-fetch";
+import * as nodeFetch from "node-fetch";
 
-const safeFetch = window ? fetch : nodeFetch;
+const safeFetch = window ? fetch : nodeFetch.default;
 export interface OAuth2ProviderConfig<ProfileType = any, TokensType extends OAuth2Tokens = any>
   extends OAuth2BaseProviderConfig<ProfileType, TokensType> {
   accessTokenUrl?: string;

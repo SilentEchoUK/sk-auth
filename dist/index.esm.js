@@ -1,5 +1,5 @@
 export { Auth as SvelteKitAuth } from './auth.esm.js';
-export { i as Providers } from './index-13de7d1e.js';
+export { i as Providers } from './index-70229c1c.js';
 import 'cookie';
 import 'jsonwebtoken';
 import './path.esm.js';

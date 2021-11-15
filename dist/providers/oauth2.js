@@ -7,11 +7,29 @@ var providers_oauth2_base = require('./oauth2.base.js');
 var nodeFetch = require('node-fetch');
 require('./base.js');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () {
+                        return e[k];
+                    }
+                });
+            }
+        });
+    }
+    n['default'] = e;
+    return Object.freeze(n);
+}
 
-var nodeFetch__default = /*#__PURE__*/_interopDefaultLegacy(nodeFetch);
+var nodeFetch__namespace = /*#__PURE__*/_interopNamespace(nodeFetch);
 
-const safeFetch = window ? fetch : nodeFetch__default['default'];
+const safeFetch = window ? fetch : nodeFetch__namespace.default;
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",
