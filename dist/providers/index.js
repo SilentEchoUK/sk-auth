@@ -11,7 +11,7 @@ var providers_oauth2_base = require('./oauth2.base.js');
 var providers_oauth2 = require('./oauth2.js');
 var providers_reddit = require('./reddit.js');
 require('../helpers.js');
-require('node-fetch');
+require('axios');
 
 
 

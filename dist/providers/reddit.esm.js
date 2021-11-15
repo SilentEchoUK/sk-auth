@@ -2,7 +2,7 @@ import { OAuth2Provider } from './oauth2.esm.js';
 import '../helpers.esm.js';
 import './oauth2.base.esm.js';
 import './base.esm.js';
-import 'node-fetch';
+import 'axios';
 
 const redditProfileHandler = ({ is_employee, has_external_account, snoovatar_img, verified, id, over_18, is_gold, is_mod, awarder_karma, has_verified_email, is_suspended, icon_img, pref_nightmode, awardee_karma, password_set, link_karma, total_karma, name, created, created_utc, comment_karma }) => ({
   is_employee,

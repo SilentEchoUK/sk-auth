@@ -4,32 +4,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var helpers = require('../helpers.js');
 var providers_oauth2_base = require('./oauth2.base.js');
-var nodeFetch = require('node-fetch');
+var axios = require('axios');
 require('./base.js');
 
-function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
-    var n = Object.create(null);
-    if (e) {
-        Object.keys(e).forEach(function (k) {
-            if (k !== 'default') {
-                var d = Object.getOwnPropertyDescriptor(e, k);
-                Object.defineProperty(n, k, d.get ? d : {
-                    enumerable: true,
-                    get: function () {
-                        return e[k];
-                    }
-                });
-            }
-        });
-    }
-    n['default'] = e;
-    return Object.freeze(n);
-}
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var nodeFetch__namespace = /*#__PURE__*/_interopNamespace(nodeFetch);
+var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 
-const safeFetch = window ? fetch : nodeFetch__namespace.default;
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",
@@ -70,7 +51,7 @@ class OAuth2Provider extends providers_oauth2_base.OAuth2BaseProvider {
     } else {
       body = JSON.stringify(data);
     }
-    const res = await safeFetch(this.config.accessTokenUrl, {
+    const res = await axios__default['default'].post(this.config.accessTokenUrl, {
       body,
       method: "POST",
       headers: {
@@ -78,13 +59,13 @@ class OAuth2Provider extends providers_oauth2_base.OAuth2BaseProvider {
         ...this.config.headers ?? {}
       }
     });
-    return await res.json();
+    return JSON.parse(res.data);
   }
   async getUserProfile(tokens) {
-    const res = await safeFetch(this.config.profileUrl, {
+    const res = await axios__default['default'].get(this.config.profileUrl, {
       headers: { Authorization: `${helpers.ucFirst(tokens.token_type)} ${tokens.access_token}` }
     });
-    return await res.json();
+    return JSON.parse(res.data);
   }
 }
 

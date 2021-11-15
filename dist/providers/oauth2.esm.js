@@ -1,9 +1,8 @@
 import { ucFirst } from '../helpers.esm.js';
 import { OAuth2BaseProvider } from './oauth2.base.esm.js';
-import * as nodeFetch from 'node-fetch';
+import axios from 'axios';
 import './base.esm.js';
 
-const safeFetch = window ? fetch : nodeFetch.default;
 const defaultConfig = {
   responseType: "code",
   grantType: "authorization_code",
@@ -44,7 +43,7 @@ class OAuth2Provider extends OAuth2BaseProvider {
     } else {
       body = JSON.stringify(data);
     }
-    const res = await safeFetch(this.config.accessTokenUrl, {
+    const res = await axios.post(this.config.accessTokenUrl, {
       body,
       method: "POST",
       headers: {
@@ -52,13 +51,13 @@ class OAuth2Provider extends OAuth2BaseProvider {
         ...this.config.headers ?? {}
       }
     });
-    return await res.json();
+    return JSON.parse(res.data);
   }
   async getUserProfile(tokens) {
-    const res = await safeFetch(this.config.profileUrl, {
+    const res = await axios.get(this.config.profileUrl, {
       headers: { Authorization: `${ucFirst(tokens.token_type)} ${tokens.access_token}` }
     });
-    return await res.json();
+    return JSON.parse(res.data);
   }
 }
 

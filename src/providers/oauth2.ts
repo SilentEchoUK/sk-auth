@@ -2,9 +2,8 @@ import type { ServerRequest } from "@sveltejs/kit/types/endpoint";
 import type { Auth } from "../auth";
 import { ucFirst } from "../helpers";
 import { OAuth2BaseProvider, OAuth2BaseProviderConfig, OAuth2Tokens } from "./oauth2.base";
-import * as nodeFetch from "node-fetch";
+import axios from "axios";
 
-const safeFetch = window ? fetch : nodeFetch.default;
 export interface OAuth2ProviderConfig<ProfileType = any, TokensType extends OAuth2Tokens = any>
   extends OAuth2BaseProviderConfig<ProfileType, TokensType> {
   accessTokenUrl?: string;
@@ -73,7 +72,7 @@ export class OAuth2Provider<
       body = JSON.stringify(data);
     }
 
-    const res = await safeFetch(this.config.accessTokenUrl!, {
+    const res = await axios.post(this.config.accessTokenUrl!, {
       body,
       method: "POST",
       headers: {
@@ -82,13 +81,13 @@ export class OAuth2Provider<
       },
     });
 
-    return await res.json();
+    return JSON.parse(res.data);
   }
 
   async getUserProfile(tokens: TokensType): Promise<ProfileType> {
-    const res = await safeFetch(this.config.profileUrl!, {
+    const res = await axios.get(this.config.profileUrl!, {
       headers: { Authorization: `${ucFirst(tokens.token_type)} ${tokens.access_token}` },
     });
-    return await res.json();
+    return JSON.parse(res.data);
   }
 }

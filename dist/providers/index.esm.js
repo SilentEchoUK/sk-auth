@@ -7,5 +7,5 @@ export { OAuth2BaseProvider } from './oauth2.base.esm.js';
 export { OAuth2Provider } from './oauth2.esm.js';
 export { RedditOAuth2Provider } from './reddit.esm.js';
 import '../helpers.esm.js';
-import 'node-fetch';
+import 'axios';
 //# sourceMappingURL=index.esm.js.map

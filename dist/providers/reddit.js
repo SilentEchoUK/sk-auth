@@ -6,7 +6,7 @@ var providers_oauth2 = require('./oauth2.js');
 require('../helpers.js');
 require('./oauth2.base.js');
 require('./base.js');
-require('node-fetch');
+require('axios');
 
 const redditProfileHandler = ({ is_employee, has_external_account, snoovatar_img, verified, id, over_18, is_gold, is_mod, awarder_karma, has_verified_email, is_suspended, icon_img, pref_nightmode, awardee_karma, password_set, link_karma, total_karma, name, created, created_utc, comment_karma }) => ({
   is_employee,

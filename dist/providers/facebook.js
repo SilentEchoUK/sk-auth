@@ -6,7 +6,7 @@ var providers_oauth2 = require('./oauth2.js');
 require('../helpers.js');
 require('./oauth2.base.js');
 require('./base.js');
-require('node-fetch');
+require('axios');
 
 const defaultConfig = {
   id: "facebook",

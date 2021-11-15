@@ -1,5 +1,5 @@
 export { Auth as SvelteKitAuth } from './auth.esm.js';
-export { i as Providers } from './index-70229c1c.js';
+export { i as Providers } from './index-fa5db825.js';
 import 'cookie';
 import 'jsonwebtoken';
 import './path.esm.js';
@@ -8,7 +8,7 @@ import './providers/twitch.esm.js';
 import './providers/oauth2.esm.js';
 import './helpers.esm.js';
 import './providers/oauth2.base.esm.js';
-import 'node-fetch';
+import 'axios';
 import './providers/google.esm.js';
 import './providers/twitter.esm.js';
 import './providers/facebook.esm.js';
