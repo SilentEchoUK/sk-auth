@@ -51,7 +51,7 @@ class OAuth2Provider extends providers_oauth2_base.OAuth2BaseProvider {
     } else {
       body = JSON.stringify(data);
     }
-    const res = await axios__default['default'].post(this.config.accessTokenUrl, {
+    const res = await axios__default['default'](this.config.accessTokenUrl, {
       data: body,
       method: "POST",
       headers: {
@@ -62,7 +62,7 @@ class OAuth2Provider extends providers_oauth2_base.OAuth2BaseProvider {
     return JSON.parse(res.data);
   }
   async getUserProfile(tokens) {
-    const res = await axios__default['default'].get(this.config.profileUrl, {
+    const res = await axios__default['default'](this.config.profileUrl, {
       headers: { Authorization: `${helpers.ucFirst(tokens.token_type)} ${tokens.access_token}` }
     });
     return JSON.parse(res.data);

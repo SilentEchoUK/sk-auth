@@ -43,7 +43,7 @@ class OAuth2Provider extends OAuth2BaseProvider {
     } else {
       body = JSON.stringify(data);
     }
-    const res = await axios.post(this.config.accessTokenUrl, {
+    const res = await axios(this.config.accessTokenUrl, {
       data: body,
       method: "POST",
       headers: {
@@ -54,7 +54,7 @@ class OAuth2Provider extends OAuth2BaseProvider {
     return JSON.parse(res.data);
   }
   async getUserProfile(tokens) {
-    const res = await axios.get(this.config.profileUrl, {
+    const res = await axios(this.config.profileUrl, {
       headers: { Authorization: `${ucFirst(tokens.token_type)} ${tokens.access_token}` }
     });
     return JSON.parse(res.data);
