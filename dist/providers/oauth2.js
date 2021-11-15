@@ -59,13 +59,13 @@ class OAuth2Provider extends providers_oauth2_base.OAuth2BaseProvider {
         ...this.config.headers ?? {}
       }
     });
-    return JSON.parse(res.data);
+    return res.data;
   }
   async getUserProfile(tokens) {
     const res = await axios__default['default'](this.config.profileUrl, {
       headers: { Authorization: `${helpers.ucFirst(tokens.token_type)} ${tokens.access_token}` }
     });
-    return JSON.parse(res.data);
+    return res.data;
   }
 }
 

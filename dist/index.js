@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var auth = require('./auth.js');
-var providers_index = require('./index-2a414860.js');
+var providers_index = require('./index-69097d95.js');
 require('cookie');
 require('jsonwebtoken');
 require('./path.js');

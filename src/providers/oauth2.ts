@@ -81,13 +81,13 @@ export class OAuth2Provider<
       },
     });
 
-    return JSON.parse(res.data);
+    return res.data;
   }
 
   async getUserProfile(tokens: TokensType): Promise<ProfileType> {
     const res = await axios(this.config.profileUrl!, {
       headers: { Authorization: `${ucFirst(tokens.token_type)} ${tokens.access_token}` },
     });
-    return JSON.parse(res.data);
+    return res.data;
   }
 }
